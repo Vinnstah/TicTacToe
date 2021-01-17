@@ -27,15 +27,16 @@ extension TicTacToeParser {
     struct New: ParsableCommand {
         static var configuration =
             CommandConfiguration(abstract: "Starts a new tic tac toe game")
+//What is config and abstract, where are these shown/triggered
         
         func run() throws {
             var game = TicTacToe(matchUp: .humanVersusHuman)
-            
+//Run() function is connected to the .main called below.
             var result: TicTacToe.Result!
             repeat {
                 result = try game.play()
             } while result == nil
-            
+//The game loop set game to the matchup HvsH, the result to .Result declared in TicTacToe. It then tries game.play constantly when the result == nil.
             print("\n\(result!)")
             game.printBoard()
         }

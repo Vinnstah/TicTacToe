@@ -20,6 +20,7 @@ public struct TicTacToe {
 // MARK: Public
 public extension TicTacToe {
     mutating func play() throws -> Result? {
+        //Why mutating? 
         defer { activePlayer.toggle() }
         
         let index = repeatedReadSquare(
